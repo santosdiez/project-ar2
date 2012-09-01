@@ -281,7 +281,7 @@ final class AR2_PostViews {
 			'label'				=> __( 'News Posts', 'ar2' ),
 			'title'				=> __( 'Latest News', 'ar2' ),
 			'type'				=> 'line',
-			'use_query_posts'	=> true,
+			//'use_query_posts'	=> true,
 			'count'				=> get_option( 'posts_per_page' ),
 			'priority'			=> 2,
 			'enabled'			=> true,
