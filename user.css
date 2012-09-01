@@ -1,1 +1,28 @@
 /* This CSS file is created for you to create or override any of the existing CSS styles used in this theme */
+
+.logo {
+	padding: 4% 12em!important;
+}
+
+.multi-sidebar .tabs {
+	font-size:smaller;
+}
+
+a.entry-comments {
+	font-size: smaller;
+}
+
+.widget_links ul li,
+.ar2_twitter_feed_widget ul li {
+	list-style: none!important;
+}
+
+.ar2_twitter_feed_widget ul {
+	margin: 0 1.25em;
+}
+
+.ar2_twitter_feed_widget ul li {
+	border-bottom: 1px dotted #CCC;
+	padding: 0 0 .75em;
+	margin: 0 0 .75em;
+}
