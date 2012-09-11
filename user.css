@@ -26,3 +26,7 @@ a.entry-comments {
 	padding: 0 0 .75em;
 	margin: 0 0 .75em;
 }
+
+.tweet-time a:link {
+	color: inherit;
+}

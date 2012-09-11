@@ -747,7 +747,7 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 		if ( is_array( $tweets ) ) : ?>
 		<ul class="tweet-list">
 		<?php foreach( $tweets as $t ) : ?>
-		<li><?php echo $t[ 'text' ] ?><span class="tweet-time"><?php printf( __( '%s ago', 'ar2' ), human_time_diff( $t[ 'time' ], current_time( 'timestamp' ) ) ) ?></span></li>
+		<li><?php echo $t[ 'text' ] ?><span class="tweet-time"><a href="<?php echo $t['permalink']; ?>"><?php printf( __( '%s ago', 'ar2' ), human_time_diff( $t[ 'time' ], current_time( 'timestamp' ) ) ) ?></a></span></li>
 		<?php endforeach ?>
 		</ul><!-- .tweet-list -->
 		<?php else : ?>
@@ -758,6 +758,18 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 		echo $after_widget;
 		
 	}
+	
+	function filter_tweet($text) {
+    	// Props to Allen Shaw & webmancers.com & Michael Voigt
+    	$text = preg_replace('/\b([a-zA-Z]+:\/\/[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',"<a href=\"$1\" class=\"twitter-link\">$1</a>",$text);
+    	$text = preg_replace('/\b(?<!:\/\/)(www\.[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',"<a href=\"http://$1\" class=\"twitter-link\">$1</a>", $text);
+    	$text = preg_replace("/\b([a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]*\@[a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]{2,6})\b/i","<a href=\"mailto://$1\" class=\"twitter-link\">$1</a>", $text);
+    	$text = preg_replace("/#(\w+)/u", "<a class=\"twitter-link\" href=\"http://search.twitter.com/search?q=\\1\">#\\1</a>", $text);
+    	$text = preg_replace("/@(\w+)/", "<a class=\"twitter-link\" href=\"http://twitter.com/\\1\">@\\1</a>", $text);
+    	
+    	return $text;
+    }
+
 	
 	public function get_tweets( $name, $count = 5, $exclude_replies = false, $include_rts = false ) {
 	
@@ -775,10 +787,8 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 					$name = $tweet[ 'user' ][ 'name' ];
 					$permalink = 'http://twitter.com/#!/'. $name .'/status/'. $tweet[ 'id_str' ];
 					
-					// Message. Convert links to real links.
-					$pattern = '/http:(\S)+/';
-					$replace = '<a href="${0}" target="_blank" rel="nofollow">${0}</a>';
-					$text = preg_replace( $pattern, $replace, $tweet[ 'text' ] );
+					// Filter tweet. Get links, hashtags and usernames as links
+					$text = $this->filter_tweet($tweet[ 'text' ]);
 					
 					$time = $tweet[ 'created_at' ];
 					$time = date_parse( $time );
