@@ -281,7 +281,7 @@ final class AR2_PostViews {
 			'label'				=> __( 'News Posts', 'ar2' ),
 			'title'				=> __( 'Latest News', 'ar2' ),
 			'type'				=> 'line',
-			'use_main_query'	=> true,
+			//'use_query_posts'	=> true,
 			'count'				=> get_option( 'posts_per_page' ),
 			'priority'			=> 2,
 			'enabled'			=> true,
@@ -394,7 +394,7 @@ function ar2_render_posts( $query = null, $args = array(), $show_nav = false ) {
 		'type'				=> 'traditional',
 		'count'				=> get_option( 'posts_per_page' ),
 		'title'				=> null,
-		'use_main_query'	=> true,
+		'use_query_posts'	=> true,
 		'enabled'			=> true,
 		'persistent'		=> false,
 	);
@@ -403,6 +403,9 @@ function ar2_render_posts( $query = null, $args = array(), $show_nav = false ) {
 
 	$section = new AR2_PostViews_Section( null, 'archive-posts', null, $args );
 	ar2_render_section( $section );
+
+	if ( $show_nav && $section->query->max_num_pages > 1 )
+		ar2_post_navigation();
 
 }
 
