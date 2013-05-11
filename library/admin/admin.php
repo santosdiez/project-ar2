@@ -115,6 +115,26 @@ function ar2_theme_options_default_fields() {
 			'title'			=> __( 'Twitter Username', 'ar2' ),
 			'section'		=> 'ar2_general_social',
 		),
+		'social_twitter_consumer_key' => array (
+			'type'			=> 'input',
+			'title'			=> __( 'Twitter Consumer Key', 'ar2' ),
+			'section'		=> 'ar2_general_social',
+		),
+		'social_twitter_consumer_secret' => array (
+			'type'			=> 'input',
+			'title'			=> __( 'Twitter Consumer Secret', 'ar2' ),
+			'section'		=> 'ar2_general_social',
+		),
+		'social_twitter_access_token' => array (
+			'type'			=> 'input',
+			'title'			=> __( 'Twitter Access Token', 'ar2' ),
+			'section'		=> 'ar2_general_social',
+		),
+		'social_twitter_access_token_secret' => array (
+			'type'			=> 'input',
+			'title'			=> __( 'Twitter Access Token Secret', 'ar2' ),
+			'section'		=> 'ar2_general_social',
+		),
 		'social_facebook' => array (
 			'type'			=> 'input',
 			'title'			=> __( 'Facebook Username', 'ar2' ),

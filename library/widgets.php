@@ -718,8 +718,13 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 	
 		$this->transient_name = 'ar2-list-tweets';
 		$this->backup_name = $this->transient_name . '-backup';
-		$this->cache_time = 5;
-	
+		$this->cache_time = 10;
+		$this->screen_name = ar2_get_theme_option('social_twitter');
+		$this->consumer_key = ar2_get_theme_option('social_twitter_consumer_key');
+		$this->consumer_secret = ar2_get_theme_option('social_twitter_consumer_secret');
+		$this->access_token = ar2_get_theme_option('social_twitter_access_token');
+		$this->access_token_secret = ar2_get_theme_option('social_twitter_access_token_secret');
+		
 		$widget_args = array (
 			'classname'		=> 'ar2_twitter_feed_widget',
 			'description'	=> __( 'Widget that shows a selected number of tweets.', 'ar2' ),
@@ -731,7 +736,7 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 	
 	public function widget( $args, $instance ) {
 		
-		if ( ar2_get_theme_option( 'social_twitter' ) == '' ) return false;
+		if ( $this->screen_name == '' ) return false;
 			
 		extract( $args, EXTR_SKIP );
 
@@ -740,14 +745,17 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 		echo $before_widget;
 		
 		if ( $title != '' )
-			echo $before_title . $title . '<a href="http://www.twitter.com/' . ar2_get_theme_option( 'social_twitter' ) . '">' . sprintf( __( ' (%s)', 'ar2' ), '@' . ar2_get_theme_option( 'social_twitter' ) ) . '</a>' . $after_title;
+			echo $before_title . $title . '<a href="http://www.twitter.com/' . $this->screen_name . '">' . sprintf( __( ' (%s)', 'ar2' ), '@' . $this->screen_name ) . '</a>' . $after_title;
 		
-		$tweets = $this->get_tweets( ar2_get_theme_option( 'social_twitter' ), $instance[ 'number' ], $instance[ 'exclude_replies' ], $instance[ 'include_rts' ] );
+		$tweets = $this->get_tweets($instance);
 		
 		if ( is_array( $tweets ) ) : ?>
 		<ul class="tweet-list">
 		<?php foreach( $tweets as $t ) : ?>
-		<li><?php echo $t[ 'text' ] ?><span class="tweet-time"><a href="<?php echo $t['permalink']; ?>"><?php printf( __( '%s ago', 'ar2' ), human_time_diff( $t[ 'time' ], current_time( 'timestamp' ) ) ) ?></a></span></li>
+		<li><?php 
+		$permalink = sprintf('http://twitter.com/#!/%s/status/%s', $this->screen_name, $t->id_str);
+		$time = strtotime($t->created_at);
+		echo $this->filter_tweet($t->text); ?><span class="tweet-time"><a href="<?php echo $permalink ?>"><?php printf( __( '%s ago', 'ar2' ), human_time_diff( $time, current_time( 'timestamp' ) ) ) ?></a></span></li>
 		<?php endforeach ?>
 		</ul><!-- .tweet-list -->
 		<?php else : ?>
@@ -771,50 +779,38 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
     }
 
 	
-	public function get_tweets( $name, $count = 5, $exclude_replies = false, $include_rts = false ) {
+	public function get_tweets($instance) {
 	
-		if ( false === $tweets = get_transient( $this->transient_name ) ) {
-		
-			$tweets = array();
+		if(false === ($twitterData = get_transient($this->transient_name))) {
 			
-			$response = wp_remote_get( 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $name . '&count=' . $count . '&exclude_replies=' . $exclude_replies . '&include_rts=' . $include_rts );
+			// require the twitter auth class
+			require_once 'twitteroauth/twitteroauth.php';
 			
-			if ( !is_wp_error( $response ) && $response[ 'response' ][ 'code' ] == 200 ) {
+			$twitterConnection = new TwitterOAuth(
+				$this->consumer_key,
+				$this->consumer_secret,
+				$this->access_token,
+				$this->access_token_secret
+			);
 			
-				$tweets_json = json_decode( $response[ 'body' ], true );
-				
-				foreach ( $tweets_json as $tweet ) {
-					$name = $tweet[ 'user' ][ 'name' ];
-					$permalink = 'http://twitter.com/#!/'. $name .'/status/'. $tweet[ 'id_str' ];
-					
-					// Filter tweet. Get links, hashtags and usernames as links
-					$text = $this->filter_tweet($tweet[ 'text' ]);
-					
-					$time = $tweet[ 'created_at' ];
-					$time = date_parse( $time );
-					$utime = mktime( $time[ 'hour' ], $time[ 'minute' ], $time[ 'second' ], $time[ 'month' ], $time[ 'day' ], $time[ 'year' ] );
-					  
-					$tweets[] = array (
-						'text'		=> $text,
-						'name'		=> $name,
-						'permalink'	=> $permalink,
-						'time'		=> $utime,
-					);
-				 
-				}
-				
-				set_transient( $this->transient_name, $tweets, 60 * $this->cache_time );
-				update_option( $this->backup_name, $tweets );
-				
-			} else {
+			$twitterData = $twitterConnection->get(
+				'statuses/user_timeline',
+				array(
+					'screen_name'     	=> $this->screen_name,
+					'count'           	=> $instance['number'],
+					'exclude_replies' 	=> $instance['exclude_replies'],
+					'include_rts'		=> $instance['include_rts']
+				)
+			);
 			
-				$tweets = get_option( $this->backup_name );
-				
+			if($twitterConnection->http_code != 200) {
+				$twitterData = get_transient($this->transient_name);
 			}
-			
+			// Save our new transient.
+			set_transient($this->transient_name, $twitterData, 60 * $this->cache_time);
 		}
 	
-		return $tweets;
+		return $twitterData;
 		
 	}
 	
@@ -822,10 +818,14 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 	
 		$instance = $old_instance;
 		
-		$instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
-		$instance[ 'number' ] = intval( $new_instance[ 'number' ] );
-		$instance[ 'exclude_replies' ] = ( boolean )( $new_instance[ 'exclude_replies' ] );
-		$instance[ 'include_rts' ] = ( boolean )( $new_instance[ 'include_rts' ] );
+		$instance['title'] = strip_tags( $new_instance[ 'title' ] );
+		$instance['consumer_key'] = strip_tags($new_instance['consumer_key']);
+		$instance['consumer_secret'] = strip_tags($new_instance['consumer_secret']);
+		$instance['access_token'] = strip_tags($new_instance['access_token']);
+		$instance['access_token_secret'] = strip_tags($new_instance['access_token_secret']);
+		$instance['number'] = intval( $new_instance[ 'number' ] );
+		$instance['exclude_replies' ] = ( boolean )( $new_instance[ 'exclude_replies' ] );
+		$instance['include_rts' ] = ( boolean )( $new_instance[ 'include_rts' ] );
 		
 		delete_transient( $this->transient_name );
 		
