@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Project AR2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-04 22:47-0000\n"
+"POT-Creation-Date: 2013-05-11 21:01-0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Borja Santos-Diez <borja@santosdiez.es>\n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: _e;__;esc_attr_e\n"
+"X-Poedit-KeywordsList: _e;__;esc_attr_e;_x\n"
 "X-Poedit-Basepath: .\n"
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: ..\n"
@@ -96,6 +96,7 @@ msgstr ""
 
 #: ../content-audio.php:11 ../content-image.php:11 ../content-video.php:11
 #: ../content.php:70 ../full-width-page.php:40 ../image.php:50 ../page.php:32
+#: ../player-template.php:20
 msgid "<p>Read the rest of this entry &raquo;</p>"
 msgstr "<p>Leer el resto de esta entrada &raquo;</p>"
 
@@ -119,7 +120,7 @@ msgstr "Editar"
 
 #: ../content-audio.php:44 ../content-image.php:44 ../content-video.php:44
 #: ../content.php:40 ../image.php:23 ../section-node.php:18
-#: ../section-quick.php:22 ../section.php:40 ../library/widgets.php:1004
+#: ../section-quick.php:22 ../section.php:40 ../library/widgets.php:1014
 #, php-format
 msgid "Posted %s"
 msgstr "Publicado %s"
@@ -139,7 +140,7 @@ msgstr "Acerca de %s"
 msgid "Back to Top"
 msgstr "Volver arriba"
 
-#: ../full-width-page.php:41 ../page.php:33
+#: ../full-width-page.php:41 ../page.php:33 ../player-template.php:21
 msgid "<p><strong>Pages:</strong> "
 msgstr "<p><strong>Páginas:</strong> "
 
@@ -499,7 +500,7 @@ msgstr "Aleatorias"
 msgid "Comments"
 msgstr "Comentarios"
 
-#: ../library/widgets.php:71 ../library/admin/admin.php:578
+#: ../library/widgets.php:71 ../library/admin/admin.php:598
 msgid "Tags"
 msgstr "Etiquetas"
 
@@ -542,8 +543,8 @@ msgstr "Historias Destacadas"
 
 #: ../library/widgets.php:345 ../library/widgets.php:447
 #: ../library/widgets.php:529 ../library/widgets.php:610
-#: ../library/widgets.php:684 ../library/widgets.php:836
-#: ../library/widgets.php:948
+#: ../library/widgets.php:684 ../library/widgets.php:846
+#: ../library/widgets.php:958
 msgid "Title:"
 msgstr "Título:"
 
@@ -603,11 +604,11 @@ msgstr ""
 #: ../library/widgets.php:480
 #, php-format
 msgid "%s - Facebook Like Box"
-msgstr "%s - Caja de \"Me Gusta\" en Facebook"
+msgstr "%s - Caja de 'Me Gusta' en Facebook"
 
 #: ../library/widgets.php:523
 msgid "Like our Facebook Page!"
-msgstr "¡Haz \"Me gusta\" en Facebook!"
+msgstr "¡Haz 'Me gusta' en Facebook!"
 
 #: ../library/widgets.php:535
 msgid "Show Faces"
@@ -669,26 +670,26 @@ msgstr "URL Vídeo:"
 msgid "Supported Video Sites"
 msgstr "Sitios de Vídeo Soportados"
 
-#: ../library/widgets.php:725
+#: ../library/widgets.php:730
 msgid "Widget that shows a selected number of tweets."
 msgstr "Widget que muestra el número de tweets seleccionado."
 
-#: ../library/widgets.php:728
+#: ../library/widgets.php:733
 #, php-format
 msgid "%s - Twitter Feed"
 msgstr "%s - Actividad en Twitter"
 
-#: ../library/widgets.php:743
+#: ../library/widgets.php:748
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
 
-#: ../library/widgets.php:750
+#: ../library/widgets.php:758
 #, php-format
 msgid "%s ago"
 msgstr "hace %s"
 
-#: ../library/widgets.php:754
+#: ../library/widgets.php:762
 msgid ""
 "There seems to be a problem communicating with Twitter at the moment. Please "
 "try again later."
@@ -696,23 +697,23 @@ msgstr ""
 "Parece que hay un problema en la comunicación con Twitter en estos momentos. "
 "Por favor inténtalo de nuevo más tarde."
 
-#: ../library/widgets.php:829
+#: ../library/widgets.php:839
 msgid "Twitter Feed"
 msgstr "Actividad en Twitter"
 
-#: ../library/widgets.php:840
+#: ../library/widgets.php:850
 msgid "Number of Tweets:"
 msgstr "Número de Tweets:"
 
-#: ../library/widgets.php:851
+#: ../library/widgets.php:861
 msgid "Exclude Replies"
 msgstr "Excluir Respuestas"
 
-#: ../library/widgets.php:856
+#: ../library/widgets.php:866
 msgid "Include RTs"
 msgstr "Incluir RTs"
 
-#: ../library/widgets.php:859
+#: ../library/widgets.php:869
 msgid ""
 "Your Twitter username must be specified via the theme options page for this "
 "widget to work."
@@ -720,60 +721,60 @@ msgstr ""
 "Tu usuario de Twitter debe especificarse a través de la página de opciones "
 "del tema para que este widget funcione."
 
-#: ../library/widgets.php:860
+#: ../library/widgets.php:870
 msgid ""
 "Any changes to the settings will take up to 5 minutes for it to take effect."
 msgstr ""
 "Cualquier cambio en los ajustes puede tardar hasta 5 minutos en tener efecto."
 
-#: ../library/widgets.php:883
+#: ../library/widgets.php:893
 msgid ""
 "Widget that shows all social media icons specified in the theme options."
 msgstr ""
 "Widget que muestra todos los iconos sociales especificados en las opciones "
 "del tema."
 
-#: ../library/widgets.php:886
+#: ../library/widgets.php:896
 #, php-format
 msgid "%s - Social Buttons"
 msgstr "%s - Botones Sociales"
 
-#: ../library/widgets.php:902 ../library/admin/admin.php:108
+#: ../library/widgets.php:912 ../library/admin/admin.php:108
 msgid "RSS Feed"
 msgstr "Feed RSS"
 
-#: ../library/widgets.php:905
+#: ../library/widgets.php:915
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../library/widgets.php:909
+#: ../library/widgets.php:919
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../library/widgets.php:913
+#: ../library/widgets.php:923
 msgid "Google+"
 msgstr "Google+"
 
-#: ../library/widgets.php:917
+#: ../library/widgets.php:927
 msgid "Flickr"
 msgstr "Flickr"
 
-#: ../library/widgets.php:921
+#: ../library/widgets.php:931
 msgid "YouTube"
 msgstr "YouTube"
 
-#: ../library/widgets.php:944
+#: ../library/widgets.php:954
 msgid "Social Buttons"
 msgstr "Botones Sociales"
 
-#: ../library/widgets.php:952
+#: ../library/widgets.php:962
 msgid ""
 "Social network IDs must be specified for their respective buttons to appear."
 msgstr ""
 "Los IDs de las redes sociales deben ser especificados para que aparezcan los "
 "respectivos botones."
 
-#: ../library/widgets.php:1017
+#: ../library/widgets.php:1027
 msgid "No posts at the moment. Check back again later!"
 msgstr "No hay entradas por el momento. ¡Vuelve a comprobarlo más tarde!"
 
@@ -861,26 +862,42 @@ msgid "Twitter Username"
 msgstr "Usuario Twitter"
 
 #: ../library/admin/admin.php:120
+msgid "Twitter Consumer Key"
+msgstr "Twitter Consumer Key"
+
+#: ../library/admin/admin.php:125
+msgid "Twitter Consumer Secret"
+msgstr "Twitter Consumer Secret"
+
+#: ../library/admin/admin.php:130
+msgid "Twitter Access Token"
+msgstr "Twitter Access Token"
+
+#: ../library/admin/admin.php:135
+msgid "Twitter Access Token Secret"
+msgstr "Twitter Access Token Secret"
+
+#: ../library/admin/admin.php:140
 msgid "Facebook Username"
 msgstr "Usuario de Facebook"
 
-#: ../library/admin/admin.php:125
+#: ../library/admin/admin.php:145
 msgid "Flickr ID"
 msgstr "ID Flickr"
 
-#: ../library/admin/admin.php:130
+#: ../library/admin/admin.php:150
 msgid "Google+ ID"
 msgstr "ID Google+"
 
-#: ../library/admin/admin.php:135
+#: ../library/admin/admin.php:155
 msgid "YouTube Channel ID"
 msgstr "ID Canal YouTube"
 
-#: ../library/admin/admin.php:142
+#: ../library/admin/admin.php:162
 msgid "Footer Message"
 msgstr "Mensaje al Pie"
 
-#: ../library/admin/admin.php:144
+#: ../library/admin/admin.php:164
 msgid ""
 "Usually your website's copyright information would go here.<br /> It would "
 "be great if you could include a link to WordPress or the theme website. :)"
@@ -888,15 +905,15 @@ msgstr ""
 "Normalmente la información de copyright de tu web iría aquí.<br />Sería "
 "genial si pudieses incluir un enlace a WordPress o a la web del tema. :)"
 
-#: ../library/admin/admin.php:151
+#: ../library/admin/admin.php:171
 msgid "Show Excerpts"
 msgstr "Mostrar Extractos"
 
-#: ../library/admin/admin.php:156
+#: ../library/admin/admin.php:176
 msgid "Excerpt Limit"
 msgstr "Límite de Extracto"
 
-#: ../library/admin/admin.php:159
+#: ../library/admin/admin.php:179
 msgid ""
 "Excerpts will only be trimmed to the limit if no excerpt is specified for "
 "the respective post."
@@ -904,30 +921,30 @@ msgstr ""
 "Los extractos únicamente se recortarán según el límite si no se proporciona "
 "extracto para el post en cuestión."
 
-#: ../library/admin/admin.php:165
+#: ../library/admin/admin.php:185
 msgid "Display Type"
 msgstr "Presentación"
 
-#: ../library/admin/admin.php:173
+#: ../library/admin/admin.php:193
 msgid "Display in Single Posts"
 msgstr "Mostrar en Entradas Individuales"
 
-#: ../library/admin/admin.php:180
+#: ../library/admin/admin.php:200
 msgid "Display Relative Post Dates"
 msgstr "Mostrar Fechas Relativas de Entradas"
 
-#: ../library/admin/admin.php:182
+#: ../library/admin/admin.php:202
 msgid ""
 "Check this to display post dates relative to current time (eg. 2 days ago )."
 msgstr ""
 "Marca esto para mostrar las fechas de las entradas relativas a la fecha "
 "actual (eg. hace 2 días)."
 
-#: ../library/admin/admin.php:188
+#: ../library/admin/admin.php:208
 msgid "Auto Thumbnails"
 msgstr "Miniaturas Automáticas"
 
-#: ../library/admin/admin.php:190
+#: ../library/admin/admin.php:210
 msgid ""
 "Check this to allow the theme to automatically retrieve the first attached "
 "image from the post as featured image when no image is specified."
@@ -935,26 +952,26 @@ msgstr ""
 "Marca esto para permitir al tema recuperar automáticamente la primera imagen "
 "adjunta de la entrada como imagen destacada cuando no se especifica imagen."
 
-#: ../library/admin/admin.php:196
+#: ../library/admin/admin.php:216
 msgid "No of Columns"
 msgstr "No. de Columnas"
 
-#: ../library/admin/admin.php:204
+#: ../library/admin/admin.php:224
 msgid "Import Theme Options"
 msgstr "Importar Opciones del Tema"
 
-#: ../library/admin/admin.php:206
+#: ../library/admin/admin.php:226
 msgid ""
 "Import your theme settings by pasting the exported code in the textbox above."
 msgstr ""
 "Importa tus ajustes del tema pegando el código exportado en el cuadro de "
 "texto superior."
 
-#: ../library/admin/admin.php:211
+#: ../library/admin/admin.php:231
 msgid "Export Theme Options"
 msgstr "Exportar Opciones del Tema"
 
-#: ../library/admin/admin.php:213
+#: ../library/admin/admin.php:233
 msgid ""
 "You can save the code above into a text file and use it when you need to "
 "import them into another installation. Note that not all options (custom "
@@ -964,24 +981,24 @@ msgstr ""
 "cuando necesites importarlos en otra instalación. No todas las opciones "
 "(fondo personalizado, ajustes de tema hijo, etc.) se exportarán."
 
-#: ../library/admin/admin.php:236
+#: ../library/admin/admin.php:256
 msgid "Custom Stylesheet"
 msgstr "Hoja de Estilos Personalizada"
 
-#: ../library/admin/admin.php:239
+#: ../library/admin/admin.php:259
 #, php-format
 msgid "Stylesheets can be placed in %s."
 msgstr "Las hojas de estilo pueden colocarse en %s."
 
-#: ../library/admin/admin.php:340
+#: ../library/admin/admin.php:360
 msgid "Theme Options"
 msgstr "Opciones del Tema"
 
-#: ../library/admin/admin.php:341
+#: ../library/admin/admin.php:361
 msgid "Options"
 msgstr "Opciones"
 
-#: ../library/admin/admin.php:396
+#: ../library/admin/admin.php:416
 msgid ""
 "If you have made any changes in the fields without submitting, all changes "
 "will be lost."
@@ -989,40 +1006,40 @@ msgstr ""
 "Si has realizado algún cambio en los campos sin enviarlo, todos los cambios "
 "se perderán."
 
-#: ../library/admin/admin.php:398
+#: ../library/admin/admin.php:418
 msgid "Start by entering a term here."
 msgstr "Empieza tecleando un término aquí."
 
-#: ../library/admin/admin.php:399
+#: ../library/admin/admin.php:419
 msgid "No results."
 msgstr "Sin resultados."
 
-#: ../library/admin/admin.php:400
+#: ../library/admin/admin.php:420
 msgid "Searching..."
 msgstr "Buscando…"
 
-#: ../library/admin/admin.php:401
+#: ../library/admin/admin.php:421
 msgid "Upload Media"
 msgstr "Subir Media"
 
-#: ../library/admin/admin.php:459
+#: ../library/admin/admin.php:479
 #, php-format
 msgid "%s Theme Options"
 msgstr "Opciones del Tema %s"
 
-#: ../library/admin/admin.php:474
+#: ../library/admin/admin.php:494
 msgid "Save Changes"
 msgstr "Guardar Cambios"
 
-#: ../library/admin/admin.php:475
+#: ../library/admin/admin.php:495
 msgid "Reset Settings"
 msgstr "Restablecer Ajustes"
 
-#: ../library/admin/admin.php:482
+#: ../library/admin/admin.php:502
 msgid "Need Support?"
 msgstr "¿Necesitas Ayuda?"
 
-#: ../library/admin/admin.php:483
+#: ../library/admin/admin.php:503
 msgid ""
 "Ask questions and share tips and tricks with fellow theme users all over the "
 "world at the theme community forums."
@@ -1030,19 +1047,19 @@ msgstr ""
 "Haz preguntas y comparte consejos y trucos con compañeros usuarios del tema "
 "por todo el mundo en los foros de la comunidad del tema."
 
-#: ../library/admin/admin.php:484 ../library/admin/admin.php:492
+#: ../library/admin/admin.php:504 ../library/admin/admin.php:512
 msgid "http://forums.arrastheme.com/"
 msgstr "http://forums.arrastheme.com/"
 
-#: ../library/admin/admin.php:484
+#: ../library/admin/admin.php:504
 msgid "Community Forums"
 msgstr "Foros de la Comunidad"
 
-#: ../library/admin/admin.php:487
+#: ../library/admin/admin.php:507
 msgid "Like this Theme?"
 msgstr "¿Te gusta este tema?"
 
-#: ../library/admin/admin.php:488
+#: ../library/admin/admin.php:508
 msgid ""
 "Arras & Project AR2 are open-source projects developed in my free time since "
 "2009 for the benefit of the WordPress community. Your donations will support "
@@ -1053,35 +1070,35 @@ msgstr ""
 "donaciones apoyarán el desarrollo en proceso de estos temas en los años "
 "venideros."
 
-#: ../library/admin/admin.php:489
+#: ../library/admin/admin.php:509
 msgid "http://www.arrastheme.com/donate/"
 msgstr "http://www.arrastheme.com/donate/"
 
-#: ../library/admin/admin.php:489
+#: ../library/admin/admin.php:509
 msgid "Donate to Theme Author"
 msgstr "Donar al Autor del Tema"
 
-#: ../library/admin/admin.php:490
+#: ../library/admin/admin.php:510
 msgid "There are other ways you can support these themes too:"
 msgstr "Hay otras formas de que apoyes estos temas también:"
 
-#: ../library/admin/admin.php:492
+#: ../library/admin/admin.php:512
 msgid "Forums"
 msgstr "Foros"
 
-#: ../library/admin/admin.php:492
+#: ../library/admin/admin.php:512
 msgid "Ask questions and share tips and tricks with others."
 msgstr "Haz preguntas y comparte consejos y trucos con los demás."
 
-#: ../library/admin/admin.php:493
+#: ../library/admin/admin.php:513
 msgid "https://www.transifex.net/projects/p/project-ar2/"
 msgstr "https://www.transifex.net/projects/p/project-ar2/"
 
-#: ../library/admin/admin.php:493
+#: ../library/admin/admin.php:513
 msgid "Translations"
 msgstr "Traducciones"
 
-#: ../library/admin/admin.php:493
+#: ../library/admin/admin.php:513
 msgid ""
 "Fluent in other languages? Translate the theme for other users around the "
 "world."
@@ -1089,87 +1106,87 @@ msgstr ""
 "¿Fluidez en otros lenguajes? Traduce el tema para otros usuarios alrededor "
 "del mundo."
 
-#: ../library/admin/admin.php:494
+#: ../library/admin/admin.php:514
 msgid "https://github.com/zyml/project-ar2"
 msgstr "https://github.com/zyml/project-ar2"
 
-#: ../library/admin/admin.php:494
+#: ../library/admin/admin.php:514
 msgid "GitHub"
 msgstr "GitHub"
 
-#: ../library/admin/admin.php:494
+#: ../library/admin/admin.php:514
 msgid "Aid development by sending in bug reports and issuing patches."
 msgstr "Ayuda al desarrollo enviando informes de fallos y publicando parches."
 
-#: ../library/admin/admin.php:558
+#: ../library/admin/admin.php:578
 msgid "Author & Publish Date"
 msgstr "Autor & Fecha de Publicación"
 
-#: ../library/admin/admin.php:563
+#: ../library/admin/admin.php:583
 msgid "Post Excerpt (if available)"
 msgstr "Extracto de Entrada (si disponible)"
 
-#: ../library/admin/admin.php:568
+#: ../library/admin/admin.php:588
 msgid "Facebook, Twitter, Google+ Buttons (English Only)"
 msgstr "Botones de Facebook, Twitter, Google+ (Sólo Inglés)"
 
-#: ../library/admin/admin.php:573
+#: ../library/admin/admin.php:593
 msgid "Categories"
 msgstr "Categorías"
 
-#: ../library/admin/admin.php:583
+#: ../library/admin/admin.php:603
 msgid "Post Thumbnail"
 msgstr "Miniatura de la Entrada"
 
-#: ../library/admin/admin.php:588
+#: ../library/admin/admin.php:608
 msgid "Author Information"
 msgstr "Información del Autor"
 
-#: ../library/admin/admin.php:611 ../library/admin/admin.php:699
+#: ../library/admin/admin.php:631 ../library/admin/admin.php:719
 msgid "No Taxonomies Available"
 msgstr "No hay Taxonomías Disponibles"
 
-#: ../library/admin/admin.php:636 ../library/classes/postviews-section.php:448
+#: ../library/admin/admin.php:656 ../library/classes/postviews-section.php:448
 msgid "Taxonomy"
 msgstr "Taxonomía"
 
-#: ../library/admin/admin.php:779
+#: ../library/admin/admin.php:799
 msgid "Width"
 msgstr "Anchura"
 
-#: ../library/admin/admin.php:783
+#: ../library/admin/admin.php:803
 msgid "Height"
 msgstr "Altura"
 
-#: ../library/admin/admin.php:787
+#: ../library/admin/admin.php:807
 msgid "Reset to Defaults"
 msgstr "Restablecer Predeterminados"
 
-#: ../library/admin/admin.php:804
+#: ../library/admin/admin.php:824
 msgid "Please choose your taxonomy before proceeding."
 msgstr "Por favor elige tu taxonomía antes de continuar."
 
-#: ../library/admin/admin.php:820
+#: ../library/admin/admin.php:840
 msgid "Loading"
 msgstr "Cargando"
 
-#: ../library/admin/admin.php:837
+#: ../library/admin/admin.php:857
 msgid "On"
 msgstr "On"
 
-#: ../library/admin/admin.php:838
+#: ../library/admin/admin.php:858
 msgid "Off"
 msgstr "Off"
 
-#: ../library/admin/admin.php:860
+#: ../library/admin/admin.php:880
 msgid "Add Image"
 msgstr "Añadir Imagen"
 
-#: ../library/admin/admin.php:861
+#: ../library/admin/admin.php:881
 msgid "Remove"
 msgstr "Eliminar"
 
-#: ../library/admin/admin.php:912
+#: ../library/admin/admin.php:932
 msgid "Default Stylesheet (style.css)"
 msgstr "Hoja de estilo por defecto (style.css)"
 
