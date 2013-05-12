@@ -1,8 +1,15 @@
 /* This CSS file is created for you to create or override any of the existing CSS styles used in this theme */
 
-.logo {
-	padding: 4% 12em!important;
+
+.posts-slideshow img {
+	max-width: 633px;
+	max-height: 350px;
 }
+
+.logo {
+	padding: 4% 12em;
+}
+
 
 .multi-sidebar .tabs {
 	font-size:smaller;
@@ -10,6 +17,22 @@
 
 a.entry-comments {
 	font-size: smaller;
+}
+
+.ar2_twitter_feed_widget h3.widget-title {
+    background-image: url('https://twitter.com/images/resources/twitter-bird-light-bgs.png');
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: -5px;
+}
+
+.ar2_fb_like_widget h3.widget-title {
+    background-image: url('https://s-static.ak.fbcdn.net/rsrc.php/v2/ym/x/lFV-lsMcC_0.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position-y: -11px;
+    background-position-x: 104%;
 }
 
 .widget_links ul li,
@@ -21,12 +44,103 @@ a.entry-comments {
 	margin: 0 1.25em;
 }
 
-.ar2_twitter_feed_widget ul li {
+.ar2_twitter_feed_widget ul li,
+ul.blogroll li {
 	border-bottom: 1px dotted #CCC;
 	padding: 0 0 .75em;
 	margin: 0 0 .75em;
 }
 
+ul.blogroll {
+	margin:auto!important;
+}
+
+ul.blogroll li {
+	text-align: center;
+}
+
 .tweet-time a:link {
 	color: inherit;
+}
+
+.twitter-link {
+	font-weight: bold!important;
+}
+
+article.page .entry-header h1.entry-title {
+	margin:0;
+	border:none;
+}
+
+article .entry-photo {
+	margin-top:0;
+}
+
+/* Custom footer sidebars */
+.footer-sidebar,
+.top-sidebar {
+	float:none;
+	width:100%;
+	text-align:center;
+}
+
+.footer-sidebar h3.widget-title {
+	border:0;
+	padding-bottom:1em!important;
+}
+
+.top-sidebar h3.widget-title {
+	display: none;
+}
+
+.footer-sidebar ul li,
+.top-sidebar ul li {
+	display: inline;
+	border-bottom: 0;
+	border-right: 1px dotted #CCC;
+	padding: 0 1em;
+	margin: 0;
+}
+
+.footer-sidebar ul li img,
+.top-sidebar ul li img {
+	vertical-align:middle;
+}
+
+.footer-sidebar ul li img {
+	max-width: 12.5%;
+	width: expression(this.width > 12.5% ? 12.5%: true);
+}
+
+.top-sidebar ul li img {
+	max-width: 18%;
+	width: expression(this.width > 18% ? 18%: true);
+}
+
+@media only screen and ( max-width: 480px ) {
+
+.footer-sidebar ul li img,
+.top-sidebar ul li img {
+	vertical-align:middle;
+	max-width: 30%;
+	width: expression(this.width > 30% ? 30%: true);
+}
+
+}
+
+.footer-sidebar ul li:last-child,
+.top-sidebar ul li:last-child {
+	border: 0;
+}
+
+#wrapper-cbox {
+	padding: 20px;
+	max-width: 800px;
+	min-width: 400px;
+}
+
+#wrapper-cbox td,
+#wrapper-cbox th {
+	text-align:center;
+	vertical-align: middle;
 }
