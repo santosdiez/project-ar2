@@ -773,8 +773,7 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
     	$text = preg_replace('/\b(?<!:\/\/)(www\.[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',"<a href=\"http://$1\" class=\"twitter-link\">$1</a>", $text);
     	$text = preg_replace("/\b([a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]*\@[a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]{2,6})\b/i","<a href=\"mailto://$1\" class=\"twitter-link\">$1</a>", $text);
     	$text = preg_replace("/#(\w+)/u", "<a class=\"twitter-link\" href=\"http://search.twitter.com/search?q=\\1\">#\\1</a>", $text);
-    	$text = preg_replace("/([^\w])@(\w+)/", "\\1<a class=\"twitter-link\" href=\"http://twitter.com/\\2\">@\\2</a>", $text);
-    	
+    	$text = preg_replace("/(?<=^|(?<=\s))@(\w+)/", " <a class=\"twitter-link\" href=\"http://twitter.com/\\1\">@\\1</a>", $text);
     	return $text;
     }
 

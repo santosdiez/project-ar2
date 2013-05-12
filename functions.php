@@ -93,8 +93,6 @@ function ar2_setup() {
 	
 	set_post_thumbnail_size( $max_image_size[ 0 ], $max_image_size[ 1 ] );
 	
-	// print_r($ar2_options);
-	
 }
 
 endif;
