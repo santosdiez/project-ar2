@@ -343,7 +343,7 @@ class AR2_Featured_Stories extends WP_Widget {
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e('Title:', 'ar2') ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
 		</p>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'featured_cat' ) ?>"><?php _e( 'Featured Categories:', 'ar2' ) ?></label><br />
@@ -445,7 +445,7 @@ class AR2_Facebook_Activity_Widget extends WP_Widget {
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Title:', 'ar2' ) ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
 		</p>
 		
 		<p>
@@ -527,7 +527,7 @@ class AR2_Facebook_Like_Widget extends WP_Widget {
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Title:', 'ar2' ) ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
 		</p>
 		
 		<p>
@@ -608,7 +608,7 @@ class AR2_GPlus_Badge_Widget extends WP_Widget {
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Title:', 'ar2' ) ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
 		</p>
 		
 		<p><?php _e( 'Your Google+ Page ID must be specified via the theme options page for this widget to work.', 'ar2' ) ?></p>
@@ -682,11 +682,11 @@ class AR2_Video_Widget extends WP_Widget {
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Title:', 'ar2' ) ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
 		</p>
 		
 		<p><label for="<?php echo $this->get_field_id( 'video' ) ?>"><?php _e( 'Video URL:', 'ar2' ) ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'video' ) ?>" name="<?php echo $this->get_field_name( 'video' ) ?>" size="43" value="<?php echo esc_url( $instance[ 'video' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'video' ) ?>" name="<?php echo $this->get_field_name( 'video' ) ?>" size="43" value="<?php echo esc_url( $instance[ 'video' ] ) ?>" />
 		</p>
 		
 		<p><a href="http://codex.wordpress.org/Embeds"><?php _e( 'Supported Video Sites', 'ar2' ) ?></a></p>
@@ -844,7 +844,7 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Title:', 'ar2' ) ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
 		</p>
 		
 		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of Tweets:', 'ar2' ) ?></label>
@@ -956,7 +956,7 @@ class AR2_Social_Buttons_Widget extends WP_Widget {
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Title:', 'ar2' ) ?></label><br />
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
+		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo strip_tags( $instance[ 'title' ] ) ?>" />
 		</p>
 
 		<p><?php _e( 'Social network IDs must be specified for their respective buttons to appear.', 'ar2' ) ?></p>
