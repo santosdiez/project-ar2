@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Project AR2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 21:01-0000\n"
+"POT-Creation-Date: 2013-05-12 16:21-0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Borja Santos-Diez <borja@santosdiez.es>\n"
 "Language-Team: \n"
@@ -156,19 +156,23 @@ msgstr "Menú Superior"
 msgid "Footer Navigation"
 msgstr "Navegación al Pie"
 
-#: ../functions.php:110
+#: ../functions.php:108
+msgid "Top Sidebar"
+msgstr "Barra Superior"
+
+#: ../functions.php:119
 msgid "Primary Sidebar"
 msgstr "Barra Lateral Primaria"
 
-#: ../functions.php:118
+#: ../functions.php:127
 msgid "Bottom Content #1"
 msgstr "Contenido Inferior #1"
 
-#: ../functions.php:126
+#: ../functions.php:135
 msgid "Bottom Content #2"
 msgstr "Contenido Inferior #2"
 
-#: ../functions.php:139
+#: ../functions.php:149
 #, php-format
 msgid "Footer Sidebar #%s"
 msgstr "Barra a Pie de Página #%s"
