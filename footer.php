@@ -6,7 +6,7 @@
 	
 		<div class="footer-sidebar-container clearfix">
 			<?php 
-				$footer_sidebars = 4;
+				global $footer_sidebars;
 			
 				for ($i = 1; $i < $footer_sidebars + 1; $i++) : 
 			?>

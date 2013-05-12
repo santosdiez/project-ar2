@@ -104,6 +104,15 @@ endif;
  * @since 1.6
  */
 function ar2_add_sidebars() {
+	register_sidebar( array(
+		'name' => __('Top Sidebar', 'ar2'),
+		'id' => 'top-sidebar',
+		'before_widget' => '<aside id="%1$s" class="%2$s widget clearfix">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>'
+	) );
+	
 	
 	/* Default sidebars */
 	register_sidebar( array(
@@ -132,7 +141,8 @@ function ar2_add_sidebars() {
 	) );
 	
 	/* Footer sidebars (4 sidebars) */
-	$footer_sidebars = 4;
+	global $footer_sidebars;
+	$footer_sidebars = 1;
 	
 	for( $i = 1; $i < $footer_sidebars + 1; $i++ ) {
 		register_sidebar( array(

@@ -87,7 +87,13 @@ if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comm
 </nav><!-- #nav -->
 <?php ar2_below_nav() ?>
 
+
+
 <?php ar2_above_main() ?>
  
 <div id="main" class="clearfix">
+<div class="top-sidebar clearfix xoxo">
+	<?php if ( !dynamic_sidebar( 'top-sidebar' ) ) : ?>
+	<?php endif; ?>
+</div>
    <div id="container" class="clearfix">
