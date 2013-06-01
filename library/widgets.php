@@ -419,7 +419,7 @@ class AR2_Facebook_Activity_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		
 		?>
-		<div class="fb-activity" data-width="280" data-height="300" data-header="false" data-recommendations="<?php echo $instance[ 'recommendations' ] ? 'true' : 'false' ?>" data-border-color="#FFF"></div>
+		<div class="fb-activity" data-width="280" data-height="300" data-header="false" data-recommendations="<?php echo $instance[ 'recommendations' ] ? 'true' : 'false' ?>" data-border-color="#FFF" show-border="false"></div>
 		<?php
 		
 		echo $after_widget;
@@ -498,7 +498,7 @@ class AR2_Facebook_Like_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		
 		?>
-		<div class="fb-like-box" data-href="http://www.facebook.com/<?php echo $fb_id ?>" data-width="292" data-show-faces="<?php echo $instance[ 'faces' ] ? 'true' : 'false' ?>" data-border-color="#FFF" data-stream="<?php echo $instance[ 'stream' ] ? 'true' : 'false' ?>" data-header="false"></div>
+		<div class="fb-like-box" data-href="http://www.facebook.com/<?php echo $fb_id ?>" data-width="292" data-show-faces="<?php echo $instance[ 'faces' ] ? 'true' : 'false' ?>" data-border-color="#FFF" show-border="false" data-stream="<?php echo $instance[ 'stream' ] ? 'true' : 'false' ?>" data-header="false"></div>
 		<?php
 
 		echo $after_widget;
