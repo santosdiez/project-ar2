@@ -18,7 +18,7 @@ class AR2_PostViews_Section {
 	public $priority	= 10;
 	public $zone;
 
-	public $query;
+	protected $query;
 	
 	/**
 	 * Constructor.
@@ -88,17 +88,7 @@ class AR2_PostViews_Section {
 			$this->settings = $args;
 			
 		$this->priority = &$this->settings[ 'priority' ];
-		
-		/*if ( is_array( $this->settings[ 'persistent' ] ) && !isset( $ar2_options[ 'sections' ][ $this->id ] ) ) {
-		
-			foreach( $this->settings[ 'persistent' ] as $id ) {
-				if ( isset( $this->settings[ $id ] ) )
-					$ar2_options[ 'sections' ][ $this->id ][ $id ] = $this->settings[ $id ];
-			}
-			
-			update_option( 'ar2_theme_options', $ar2_options );
-			
-		}*/
+
 	}
 	
 	/**
@@ -109,6 +99,19 @@ class AR2_PostViews_Section {
 	
 		return apply_filters( $this->id . '_field_name', 'ar2_theme_options[sections][' . $this->id . '][' . $name . ']', $name );
 	
+	}
+
+	/**
+	 * Returns the WP_Query object used in this section.
+	 * @since 2.0
+	 */
+	public function get_query() {
+
+		if ( !is_a( $this->query, 'WP_Query' ) )
+			$this->prepare_query();
+
+		return $this->query;
+
 	}
 	
 	/**
@@ -166,12 +169,14 @@ class AR2_PostViews_Section {
 			break;
 		
 		default :
-			$_query_args[ 'tax_query' ][] = array (
-				'taxonomy'	=> $this->settings[ 'taxonomy' ],
-				'field'		=> 'id',
-				'terms'		=> $this->settings[ 'terms' ],
-				'operator'	=> 'AND',
-			);	
+			if ( !empty($this->settings[ 'terms '] ) ) {
+				$_query_args[ 'tax_query' ][] = array (
+					'taxonomy'	=> $this->settings[ 'taxonomy' ],
+					'field'		=> 'id',
+					'terms'		=> $this->settings[ 'terms' ],
+					'operator'	=> 'AND',
+				);
+			}
 			
 		endswitch;
 
@@ -200,7 +205,9 @@ class AR2_PostViews_Section {
 		global $wp_query;
 
 		if ( $this->settings[ 'use_main_query' ] ) {
-			add_action( 'pre_get_posts', array ( $this, 'alter_main_query' ) );
+			if ( !is_search() ) {
+				add_action( 'pre_get_posts', array ( $this, 'alter_main_query' ) );
+			}
 			$this->query = &$wp_query;
 			$this->query->get_posts();
 		} else {
