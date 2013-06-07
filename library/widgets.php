@@ -718,7 +718,7 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 	
 		$this->transient_name = 'ar2-list-tweets';
 		$this->backup_name = $this->transient_name . '-backup';
-		$this->cache_time = 10;
+		$this->cache_time = 1;
 		$this->screen_name = ar2_get_theme_option('social_twitter');
 		$this->consumer_key = ar2_get_theme_option('social_twitter_consumer_key');
 		$this->consumer_secret = ar2_get_theme_option('social_twitter_consumer_secret');
@@ -801,12 +801,13 @@ class AR2_Twitter_Feed_Widget extends WP_Widget {
 					'include_rts'		=> $instance['include_rts']
 				)
 			);
-			
+		
 			if($twitterConnection->http_code != 200) {
 				$twitterData = get_transient($this->transient_name);
+			} else {
+				set_transient($this->transient_name, $twitterData, 60 * $this->cache_time);
 			}
-			// Save our new transient.
-			set_transient($this->transient_name, $twitterData, 60 * $this->cache_time);
+			
 		}
 	
 		return $twitterData;
